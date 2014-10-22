@@ -1,14 +1,17 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'war'
-apply plugin: 'application'
+apply plugin: 'eclipse-wtp'
+
 
 repositories {
-	flatDir(dirs: "$projectDir/WebContent/WEB-INF/lib")
+	mavenCentral()
+	//flatDir(dirs: "$projectDir/WebContent/WEB-INF/lib")
 }
 
 dependencies {
-	compile ':commons-logging:1.2'
+	providedCompile 'javax.servlet:servlet-api:2.5'
+	runtime 'javax.servlet:jstl:1.1.2'
+	compile 'org.springframework:spring-webmvc:4.1.1.RELEASE'
+	/*compile ':commons-logging:1.2'
 	compile ':spring-aop:4.1.1.RELEASE'
 	compile ':spring-aspects:4.1.1.RELEASE'
 	compile ':spring-beans:4.1.1.RELEASE'
@@ -22,9 +25,11 @@ dependencies {
 	compile ':spring-jms:4.1.1.RELEASE'
 	compile ':spring-messaging:4.1.1.RELEASE'
 	compile ':spring-orm:4.1.1.RELEASE'
-	compile ':spring-web'
 	compile ':spring-web:4.1.1.RELEASE'
 	compile ':spring-webmvc:4.1.1.RELEASE'
 	compile ':spring-webmvc-portlet:4.1.1.RELEASE'
 	compile ':spring-websocket:4.1.1.RELEASE'
+	*/
+	
+	
 }
