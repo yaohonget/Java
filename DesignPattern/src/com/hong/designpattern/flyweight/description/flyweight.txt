@@ -1,0 +1,10 @@
+Flyweight pattern is primarily used to reduce the number of objects created, to decrease memory footprint and increase performance. 
+This type of design pattern comes under structural pattern as this pattern provides ways to decrease objects count thus improving application required objects structure. 
+Flyweight pattern try to reuse already existing similar kind objects by storing them and creates new object when no matching object is found.
+
+in JDK :
+Caching to support large numbers of smaller objects efficiently. 
+ - java.lang.Integer#valueOf(int) 
+ - java.lang.Boolean#valueOf(boolean) 
+ - java.lang.Byte#valueOf(byte) 
+ - java.lang.Character#valueOf(char)
