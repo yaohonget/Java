@@ -1,9 +1,16 @@
 package com.hong.dev.practice.java8;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+
 import com.hong.dev.practice.java8.capi.functionalInterface.IConverter;
 import com.hong.dev.practice.java8.capi.functionalInterface.ISomethingFactory;
 import com.hong.dev.practice.java8.internal.Calculator;
 import com.hong.dev.practice.java8.internal.lambda.Lambda;
+import com.hong.dev.practice.java8.internal.lambda.Something;
+
+import org.joda.time.LocalTime;
 
 /**
  * {@link http://winterbe.com/posts/2014/03/16/java-8-tutorial/}
@@ -15,7 +22,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Hello, World!");
-
+		LocalTime currentTime = new LocalTime();
+	    System.out.println("The current local time is: " + currentTime);
+	    
 		// default method
 		Calculator calculator = new Calculator();
 		double res = calculator.calculate(20);
@@ -53,7 +62,20 @@ public class Main {
 		// i1 = 20; // Compile error.
 		IConverter<String, Integer> converter5 = (i) -> i2 + i * 2 + "";
 		System.out.println(converter5.convert(89));
-
+		
+		// Map
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		
+		for(int i = 0; i < 100; i++) {
+			map.putIfAbsent(i, "Val" + i);
+		}
+		map.forEach((i, v) -> System.out.println(i + " :: " + v));
+		map.forEach(Something::output);
+		
+		Function<Integer, String> fOutput = Something::getStrFromInt;
+		map.computeIfAbsent(200, fOutput);
+		
+		map.forEach(Something::output);
 	}
 }
 

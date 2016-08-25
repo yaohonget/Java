@@ -1,11 +1,11 @@
-package com.hong.dev.practice.java8;
+package com.hong.dev.practice.java8.internal.lambda;
 
 public class Something {
 	
 	private String thing1;
 	private String thing2;
 	
-	Something(String theThing, String thatThing) {
+	public Something(String theThing, String thatThing) {
 		this.thing1 = theThing;
 		this.thing2 = thatThing;
 	}
@@ -14,8 +14,21 @@ public class Something {
 		System.out.println(getThing1() + " - " + getThing2());
 	}
 	
-	static String startWith(String pStr) {
+	public static String startWith(String pStr) {
 		return String.valueOf(pStr.charAt(0));
+	}
+	
+	public static String getStrFromInt(Integer pI) {
+		System.out.println("convert int : " + pI);
+		return " --> " + pI;
+	}
+	
+	public static void output(String pStr) {
+		System.out.println(pStr);
+	}
+	
+	public static void output(Integer pI, String pStr) {
+		System.out.println(pI + " -> " + pStr);
 	}
 
 	public String getThing1() {
