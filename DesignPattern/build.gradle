@@ -1,2 +1,16 @@
-apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'java'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    
+}
+
+jar {
+    baseName = 'DesignPattern'
+    version =  '1.0.0'
+}
